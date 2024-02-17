@@ -4,5 +4,25 @@
 @layer components {
   body {
     background: #000;
+    font-family: Noto Sans TC, sans-serif;
+  }
+  body {
+    --sb-track-color: #ffffff;
+    --sb-thumb-color: #ff6b00;
+    --sb-size: 4px;
+  }
+
+  body::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 1px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 1px;
   }
 }
