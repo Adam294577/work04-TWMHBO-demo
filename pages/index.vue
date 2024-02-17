@@ -1,6 +1,12 @@
 <script setup></script>
 <template>
-  <div>這裡是首頁內容</div>
+  <div>
+    <HomeBanner />
+    <HomeRecommend />
+    <HomeCont />
+    <HomePrice />
+    <HomeStartStep />
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
