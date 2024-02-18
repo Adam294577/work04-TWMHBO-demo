@@ -41,3 +41,21 @@ export const useFaqStore = defineStore("faq", () => {
     handFaqContOpenIdx,
   };
 });
+export const usetHeaderStore = defineStore("header", () => {
+  const MenuIconOpen = ref(false);
+  const handMenuIcon = () => (MenuIconOpen.value = !MenuIconOpen.value);
+  const route = useRoute();
+  const router = useRouter();
+  const nowPathIs = computed(() => route.path);
+
+  const CloseMenuIcon = (url) => {
+    if (nowPathIs.value === "/" && url === "/") return;
+    MenuIconOpen.value = false;
+  };
+
+  return {
+    MenuIconOpen,
+    handMenuIcon,
+    CloseMenuIcon,
+  };
+});

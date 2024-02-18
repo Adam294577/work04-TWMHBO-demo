@@ -1,5 +1,8 @@
 <script setup>
 import "virtual:svg-icons-register";
+import { usetHeaderStore } from "~/stores/counter";
+const store = usetHeaderStore();
+const { handMenuIcon } = store;
 </script>
 <template>
   <header class="h-[70px] flex items-center justify-between relative z-20">
@@ -7,6 +10,7 @@ import "virtual:svg-icons-register";
       <SvgIcon class="ml-4 cursor-pointer w-[200px] h-[50px]" name="TWMHBO" />
     </nuxt-link>
     <SvgIcon
+      @click="handMenuIcon"
       class="flex items-center absolute right-16 md:hidden cursor-pointer w-[50px]"
       name="menu"
     />
@@ -14,6 +18,7 @@ import "virtual:svg-icons-register";
     <Account class="hidden" />
     <SvgIcon class="relative -left-2 w-[48px]" name="user" />
   </header>
+  <HeaderMenuOpen />
   <NuxtPage />
   <footer class="pt-5 pb-10 lg:flex">
     <FooterMenu />
