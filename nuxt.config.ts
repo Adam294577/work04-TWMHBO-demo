@@ -30,4 +30,22 @@ export default defineNuxtConfig({
       }),
     ],
   },
+  // global head meta
+  app: {
+    head: {
+      viewport: "width=500, initial-scale=1",
+      title: "TWM HBO GO demo-首頁",
+      meta: [
+        {
+          name: "description",
+          content: "這是使用 nuxt3開發 測試模擬 TWM HBO GO的網頁內容",
+        },
+        { property: "og:title", content: "TWM HBO GO demo-首頁" },
+        {
+          property: "og:description",
+          content: "這是使用 nuxt3開發 測試模擬 TWM HBO GO的網頁內容",
+        },
+      ],
+    },
+  },
 });
