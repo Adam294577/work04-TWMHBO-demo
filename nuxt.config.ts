@@ -63,7 +63,7 @@ export default defineNuxtConfig({
         },
         {
           property: "twitter:title",
-          content: "這是使用 nuxt3開發 測試模擬 TWM HBO GO的網頁內容",
+          content: "TWM HBO GO demo-首頁",
         },
         {
           property: "twitter:description",
