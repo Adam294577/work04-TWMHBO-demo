@@ -1,4 +1,9 @@
 <script setup>
+useSeoMeta({
+  ogTitle: "TWM HBO GO demo-FAQ",
+  title: "TWM HBO GO demo-FAQ",
+});
+
 const store = useFaqStore();
 const { FaqData } = store;
 const { FaqNavIs, faqContOpenIdx } = storeToRefs(store);
