@@ -41,3 +41,55 @@ export const useFaqStore = defineStore("faq", () => {
     handFaqContOpenIdx,
   };
 });
+export const usetHeaderStore = defineStore("header", () => {
+  const MenuIconOpen = ref(false);
+  const handMenuIcon = () => (MenuIconOpen.value = !MenuIconOpen.value);
+  const route = useRoute();
+  const nowPathIs = computed(() => route.path);
+
+  const CloseMenuIcon = (url) => {
+    if (nowPathIs.value === "/" && url === "/") return;
+    MenuIconOpen.value = false;
+  };
+
+  return {
+    MenuIconOpen,
+    handMenuIcon,
+    CloseMenuIcon,
+  };
+});
+
+export const useAdvStore = defineStore("adv", () => {
+  const advBool = ref(true);
+  const priceContainer = ref(null);
+  const priceOffsetTopIs = ref(0);
+  const handAdvBool = () => {
+    advBool.value = !advBool.value;
+  };
+  const ScrollPos = ref(null);
+  const advIsShow = computed(() =>
+    priceOffsetTopIs.value - 800 < ScrollPos.value ? true : false
+  );
+  const updatePriceOffsetTop = () => {
+    priceOffsetTopIs.value = priceContainer.value.$el.offsetTop;
+    console.log("新的adv高度offset", priceOffsetTopIs.value - 800);
+  };
+  const handScrollPos = () => {
+    ScrollPos.value = window.scrollY || window.pageYOffset;
+    console.log("滚轮位置：", ScrollPos.value);
+  };
+  const scrollToPrice = () => {
+    window.scrollTo({ top: priceOffsetTopIs.value });
+    handScrollPos();
+  };
+
+  return {
+    advIsShow,
+    priceContainer,
+    scrollToPrice,
+    advBool,
+    handAdvBool,
+    handScrollPos,
+    updatePriceOffsetTop,
+  };
+});

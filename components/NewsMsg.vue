@@ -3,7 +3,7 @@
   <div
     class="bg-white w-[95%] ml-[2.5%] py-4 px-6 shadow-md rounded-[10px] z-10 md:flex gap-x-4 md:items-start relative lg:py-8 lg:max-w-[1200px] lg:mx-auto"
   >
-    <NewsTitle class="relative top-[-4.5rem] md:absolute w-full">
+    <NewsTitle class="text-white relative top-[-4.5rem] md:absolute w-full">
       最新消息
     </NewsTitle>
     <div class="rounded-[20px] overflow-hidden md:w-1/2">
