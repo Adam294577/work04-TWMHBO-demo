@@ -44,6 +44,7 @@ const xssParseCont = computed(() => {
   --sb-size: 4px;
   overflow: hidden;
   overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 .lightBoxScroll::-webkit-scrollbar {
