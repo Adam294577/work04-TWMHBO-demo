@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   // global head meta
   app: {
     head: {
-      viewport: "width=500, initial-scale=1",
+      viewport: "width=device-width, initial-scale=1",
       title: "TWM HBO GO demo-首頁",
       meta: [
         {
@@ -44,6 +44,34 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content: "這是使用 nuxt3開發 測試模擬 TWM HBO GO的網頁內容",
+        },
+        {
+          property: "og:url",
+          content: "https://work04-twmhbo-demo.vercel.app/",
+        },
+        {
+          property: "og:image",
+          content: "https://hbogo.taiwanmobile.com/img/HBO/index/ogimage.jpg",
+        },
+        {
+          property: "og:type",
+          content: "website",
+        },
+        {
+          property: "twitter:card",
+          content: "summary",
+        },
+        {
+          property: "twitter:title",
+          content: "TWM HBO GO demo-首頁",
+        },
+        {
+          property: "twitter:description",
+          content: "這是使用 nuxt3開發 測試模擬 TWM HBO GO的網頁內容",
+        },
+        {
+          property: "twitter:image",
+          content: "https://hbogo.taiwanmobile.com/img/HBO/index/ogimage.jpg",
         },
       ],
     },
