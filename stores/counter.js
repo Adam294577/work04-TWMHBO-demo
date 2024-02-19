@@ -72,11 +72,11 @@ export const useAdvStore = defineStore("adv", () => {
   );
   const updatePriceOffsetTop = () => {
     priceOffsetTopIs.value = priceContainer.value.$el.offsetTop;
-    console.log("新的adv高度offset", priceOffsetTopIs.value - 800);
+    // console.log("新的adv高度offset", priceOffsetTopIs.value - 800);
   };
   const handScrollPos = () => {
     ScrollPos.value = window.scrollY || window.pageYOffset;
-    console.log("滚轮位置：", ScrollPos.value);
+    // console.log("滚轮位置：", ScrollPos.value);
   };
   const scrollToPrice = () => {
     window.scrollTo({ top: priceOffsetTopIs.value });
@@ -92,4 +92,19 @@ export const useAdvStore = defineStore("adv", () => {
     handScrollPos,
     updatePriceOffsetTop,
   };
+});
+export const usePlanPriceStore = defineStore("planprice", () => {
+  const PlanPriceData = reactive({ data: [] });
+  const PlanPriceRender = computed(() => {
+    let result = PlanPriceData.data ?? [];
+    result = result.map((item) => {
+      item.exclusive = false;
+      if (item.deadline === "year") {
+        item.exclusive = true;
+      }
+      return item;
+    });
+    return result;
+  });
+  return { PlanPriceData, PlanPriceRender };
 });

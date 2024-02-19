@@ -1,8 +1,14 @@
-<script setup></script>
+<script setup>
+const priceStore = usePlanPriceStore();
+const { PlanPriceData } = priceStore;
+const GetPriceApiData = await useFetch("/api/planPriceData");
+PlanPriceData.data = GetPriceApiData.data.value.data;
+</script>
 <template>
   <div class="priceBg mt-10">
     <HomeSectionTilte> 選擇你的 HBO GO 方案 </HomeSectionTilte>
     <HomePriceCont />
+    <HomePriceRemind />
   </div>
 </template>
 
