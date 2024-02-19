@@ -8,7 +8,7 @@ advBool.value = true;
   <div
     v-show="advBool"
     :class="[
-      'z-50',
+      'z-40',
       'fixed',
       'bottom-0',
       'transition-transform',
@@ -30,6 +30,7 @@ advBool.value = true;
     <SvgIcon
       @click="handAdvBool"
       name="cancel"
+      color="#FFF"
       class="w-[50px] h-[50px] z-50 absolute right-[-5px] top-[-5px] scale-[0.35] fill-[#FFF] cursor-pointer md:top-2 md:right-0 md:scale-[0.7]"
     />
     <span

@@ -14,6 +14,7 @@ const { handMenuIcon, CloseMenuIcon } = store;
       <SvgIcon
         @click="handMenuIcon"
         name="cancel"
+        color="#FFF"
         class="absolute left-1/2 -translate-x-1/2 top-[30px] cursor-pointer w-[50px] h-[50px]"
       />
       <ul class="text-center pt-[100px] space-y-12">
