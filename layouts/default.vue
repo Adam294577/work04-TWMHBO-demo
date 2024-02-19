@@ -9,7 +9,7 @@ const { darkBoxBool } = storeToRefs(LightBoxStore);
 
 <template>
   <div
-    class="darkBox h-full w-full bg-[#000] opacity-20 fixed top-0 z-40"
+    class="darkBox h-full w-full bg-[#000] opacity-20 fixed top-0 z-[49]"
     v-if="darkBoxBool"
   ></div>
   <header class="h-[70px] flex items-center justify-between relative z-20">
