@@ -16,7 +16,7 @@ const xssParseCont = computed(() => {
 </script>
 <template>
   <div
-    class="z-50 bg-[#FFF] fixed w-[90%] lg:max-w-[800px] max-w-[600px] p-4 pb-10 rounded-lg h-[90vh] top-[5vh] left-1/2 -translate-x-1/2"
+    class="z-50 bg-[#FFF] fixed w-[90%] lg:max-w-[800px] max-w-[600px] p-4 pb-10 rounded-lg h-[90vh] top-8 left-1/2 -translate-x-1/2"
     v-if="RemindCont.is.length !== 0"
   >
     <LightBoxTitle>
