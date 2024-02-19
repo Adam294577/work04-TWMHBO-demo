@@ -1,31 +1,38 @@
-<script setup></script>
+<script setup>
+import { xssParse } from "@/lib/filterXss";
+const store = usePlanPriceStore();
+const { RemindCont } = storeToRefs(store);
+const { ClosePriceRemindCont } = store;
+const xssParseCont = computed(() => {
+  let cont = RemindCont.value.is;
+  let result = [];
+  cont.forEach((item) => {
+    result.push(xssParse(item.msg));
+  });
+  // console.log('原資料',cont);
+  // console.log('XSS處理後=>',result);
+  return result;
+});
+</script>
 <template>
   <div
-    class="z-50 bg-[#FFF] fixed w-[90%] max-w-[600px] p-4 pb-10 rounded-lg h-[90vh] top-[5vh] left-1/2 -translate-x-1/2"
-    v-if="false"
+    class="z-50 bg-[#FFF] fixed w-[90%] lg:max-w-[800px] max-w-[600px] p-4 pb-10 rounded-lg h-[90vh] top-[5vh] left-1/2 -translate-x-1/2"
+    v-if="RemindCont.is.length !== 0"
   >
-    <LightBoxTitle>貼心提醒</LightBoxTitle>
-    <ol class="lightBoxScroll list-decimal px-4 h-[75vh]">
-      <li>
-        本專案綁約期間以系統認定之專案合約起始日開始起算。本專案綁約期間屆滿後，HBO
-        GO 服務繼續有效，若不再使用須依服務契約規定辦理退租手續。
-      </li>
-      <li>
-        申辦本專案，於綁約 12
-        個月內，適用以下減免優惠（減免適用項目依台灣大哥大規定），綁約期間內若違反專案規定或取消
-        HBO GO 服務，優惠終止：享每月 HBO GO 服務月租減免優惠：【60元】。
-      </li>
-      <li>
-        本服務詳細規範依台灣大哥大月租型 HBO GO 服務條款為準; HBO GO
-        服務提供者保留隨時更改服務內容和價格之權利，如有 HBO GO
-        服務產品相關問題，請參 HBO GO 使用條款：<nuxt-link
-          style="color: #ffa631"
-          to="https://www.hbogoasia.tw/terms_of_service"
-          target="_blank"
-          external
-          >https://www.hbogoasia.tw/terms_of_service</nuxt-link
-        >，並依 HBO GO 服務官方公告規範為主
-      </li>
+    <LightBoxTitle>
+      <template #cancel>
+        <SvgIcon
+          @click="ClosePriceRemindCont"
+          name="cancel"
+          color="#999"
+          class="w-[50px] h-[50px] absolute right-4 cursor-pointer"
+        />
+      </template>
+      <template #title> 貼心提醒 </template>
+    </LightBoxTitle>
+    <ol class="lightBoxScroll list-decimal px-8 h-[75vh] space-y-2">
+      <!-- <li v-for="list in RemindCont.is" :key="list.msg" v-html="list.msg"></li> -->
+      <li v-for="list in xssParseCont" :key="list" v-html="list"></li>
     </ol>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup>
 const priceStore = usePlanPriceStore();
 const { PlanPriceRender } = storeToRefs(priceStore);
+const { ShowPriceRemindCont } = priceStore;
 </script>
 <template>
   <div
@@ -41,7 +42,12 @@ const { PlanPriceRender } = storeToRefs(priceStore);
           >
             我要訂閱
           </button>
-          <p class="underline text-gray-400 text-center py-4">貼心提醒</p>
+          <button
+            class="underline text-gray-400 text-center py-4"
+            @click="ShowPriceRemindCont(list.deadline)"
+          >
+            貼心提醒
+          </button>
         </div>
       </div>
     </div>

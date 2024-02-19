@@ -1,10 +1,12 @@
 <script setup>
 import "virtual:svg-icons-register";
-import { usetHeaderStore } from "~/stores/counter";
-const store = usetHeaderStore();
-const { handMenuIcon } = store;
-const darkBoxBool = ref(false);
+import { usetHeaderStore, useLightBoxStore } from "~/stores/counter";
+const HeaderStore = usetHeaderStore();
+const LightBoxStore = useLightBoxStore();
+const { handMenuIcon } = HeaderStore;
+const { darkBoxBool } = storeToRefs(LightBoxStore);
 </script>
+
 <template>
   <div
     class="darkBox h-full w-full bg-[#000] opacity-20 fixed top-0 z-40"

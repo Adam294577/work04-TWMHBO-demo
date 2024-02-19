@@ -1,4 +1,9 @@
 import { defineStore } from "pinia";
+
+export const useLightBoxStore = defineStore("lightbox", () => {
+  const darkBoxBool = ref(false);
+  return { darkBoxBool };
+});
 export const useFaqStore = defineStore("faq", () => {
   const FaqNavIs = ref("Application");
   const FaqData = reactive({ data: [] });
@@ -106,5 +111,28 @@ export const usePlanPriceStore = defineStore("planprice", () => {
     });
     return result;
   });
-  return { PlanPriceData, PlanPriceRender };
+
+  const RemindCont = ref({ is: [] });
+  const LightBoxStore = useLightBoxStore();
+  const { darkBoxBool } = storeToRefs(LightBoxStore);
+  const ShowPriceRemindCont = (key) => {
+    let mapPlanPriceData = Object.groupBy(
+      PlanPriceData.data,
+      ({ deadline }) => deadline
+    );
+    RemindCont.value.is = mapPlanPriceData[key][0].remindCont;
+    darkBoxBool.value = true;
+    console.log(RemindCont.value.is);
+  };
+  const ClosePriceRemindCont = () => {
+    RemindCont.value.is = [];
+    darkBoxBool.value = false;
+  };
+  return {
+    PlanPriceData,
+    PlanPriceRender,
+    ShowPriceRemindCont,
+    ClosePriceRemindCont,
+    RemindCont,
+  };
 });

@@ -1,13 +1,13 @@
-<script setup></script>
+<script setup>
+const PlanPrice = usePlanPriceStore();
+const { CloseRemindCont } = PlanPrice;
+</script>
 <template>
   <div class="flex items-center relative py-8 justify-center">
-    <SvgIcon
-      name="cancel"
-      color="#999"
-      class="w-[50px] h-[50px] absolute right-4"
-    />
+    <slot name="cancel"></slot>
+
     <h1 class="text-center text-xl font-bold text-[#222]">
-      <slot></slot>
+      <slot name="title"></slot>
     </h1>
   </div>
 </template>

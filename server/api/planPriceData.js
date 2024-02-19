@@ -37,7 +37,7 @@ export default defineEventHandler((event) => {
         },
         {
           idx: 7,
-          msg: "本服務詳細規範依台灣大哥大月租型 HBO GO 服務條款為準; HBO GO 服務提供者保留隨時更改服務內容和價格之權利，如有 HBO GO 服務產品相關問題，請參 HBO GO 使用條款：<nuxt-link style='color: #ffa631' to='https://www.hbogoasia.tw/terms_of_service' target='_blank' external>https://www.hbogoasia.tw/terms_of_service</nuxt-link>，並依 HBO GO 服務官方公告規範為主",
+          msg: "本服務詳細規範依台灣大哥大月租型 HBO GO 服務條款為準; HBO GO 服務提供者保留隨時更改服務內容和價格之權利，如有 HBO GO 服務產品相關問題，請參 HBO GO 使用條款：<a style='color: #ffa631' href='https://www.hbogoasia.tw/terms_of_service' target='_blank' external>https://www.hbogoasia.tw/terms_of_service</a>，並依 HBO GO 服務官方公告規範為主",
         },
       ],
     },
@@ -78,7 +78,7 @@ export default defineEventHandler((event) => {
         },
         {
           idx: 7,
-          msg: "本服務詳細規範依台灣大哥大月租型 HBO GO 服務條款為準; HBO GO 服務提供者保留隨時更改服務內容和價格之權利，如有 HBO GO 服務產品相關問題，請參 HBO GO 使用條款：<nuxt-link style='color: #ffa631' to='https://www.hbogoasia.tw/terms_of_service' target='_blank' external>https://www.hbogoasia.tw/terms_of_service</nuxt-link>，並依 HBO GO 服務官方公告規範為主",
+          msg: "本服務詳細規範依台灣大哥大月租型 HBO GO 服務條款為準; HBO GO 服務提供者保留隨時更改服務內容和價格之權利，如有 HBO GO 服務產品相關問題，請參 HBO GO 使用條款：<a style='color: #ffa631' href='https://www.hbogoasia.tw/terms_of_service' target='_blank'>https://www.hbogoasia.tw/terms_of_service</a>，並依 HBO GO 服務官方公告規範為主 <script>XSS攻擊內容</script>",
         },
       ],
     },
