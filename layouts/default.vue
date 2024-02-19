@@ -1,10 +1,17 @@
 <script setup>
 import "virtual:svg-icons-register";
-import { usetHeaderStore } from "~/stores/counter";
-const store = usetHeaderStore();
-const { handMenuIcon } = store;
+import { usetHeaderStore, useLightBoxStore } from "~/stores/counter";
+const HeaderStore = usetHeaderStore();
+const LightBoxStore = useLightBoxStore();
+const { handMenuIcon } = HeaderStore;
+const { darkBoxBool } = storeToRefs(LightBoxStore);
 </script>
+
 <template>
+  <div
+    class="darkBox h-full w-full bg-[#000] opacity-20 fixed top-0 z-40"
+    v-if="darkBoxBool"
+  ></div>
   <header class="h-[70px] flex items-center justify-between relative z-20">
     <nuxt-link to="/">
       <SvgIcon class="ml-4 cursor-pointer w-[200px] h-[50px]" name="TWMHBO" />

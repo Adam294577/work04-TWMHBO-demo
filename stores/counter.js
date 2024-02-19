@@ -1,4 +1,9 @@
 import { defineStore } from "pinia";
+
+export const useLightBoxStore = defineStore("lightbox", () => {
+  const darkBoxBool = ref(false);
+  return { darkBoxBool };
+});
 export const useFaqStore = defineStore("faq", () => {
   const FaqNavIs = ref("Application");
   const FaqData = reactive({ data: [] });
@@ -72,11 +77,11 @@ export const useAdvStore = defineStore("adv", () => {
   );
   const updatePriceOffsetTop = () => {
     priceOffsetTopIs.value = priceContainer.value.$el.offsetTop;
-    console.log("新的adv高度offset", priceOffsetTopIs.value - 800);
+    // console.log("新的adv高度offset", priceOffsetTopIs.value - 800);
   };
   const handScrollPos = () => {
     ScrollPos.value = window.scrollY || window.pageYOffset;
-    console.log("滚轮位置：", ScrollPos.value);
+    // console.log("滚轮位置：", ScrollPos.value);
   };
   const scrollToPrice = () => {
     window.scrollTo({ top: priceOffsetTopIs.value });
@@ -91,5 +96,43 @@ export const useAdvStore = defineStore("adv", () => {
     handAdvBool,
     handScrollPos,
     updatePriceOffsetTop,
+  };
+});
+export const usePlanPriceStore = defineStore("planprice", () => {
+  const PlanPriceData = reactive({ data: [] });
+  const PlanPriceRender = computed(() => {
+    let result = PlanPriceData.data ?? [];
+    result = result.map((item) => {
+      item.exclusive = false;
+      if (item.deadline === "year") {
+        item.exclusive = true;
+      }
+      return item;
+    });
+    return result;
+  });
+
+  const RemindCont = ref({ is: [] });
+  const LightBoxStore = useLightBoxStore();
+  const { darkBoxBool } = storeToRefs(LightBoxStore);
+  const ShowPriceRemindCont = (key) => {
+    let mapPlanPriceData = Object.groupBy(
+      PlanPriceData.data,
+      ({ deadline }) => deadline
+    );
+    RemindCont.value.is = mapPlanPriceData[key][0].remindCont;
+    darkBoxBool.value = true;
+    console.log(RemindCont.value.is);
+  };
+  const ClosePriceRemindCont = () => {
+    RemindCont.value.is = [];
+    darkBoxBool.value = false;
+  };
+  return {
+    PlanPriceData,
+    PlanPriceRender,
+    ShowPriceRemindCont,
+    ClosePriceRemindCont,
+    RemindCont,
   };
 });
