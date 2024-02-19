@@ -8,7 +8,7 @@ const { ShowPriceRemindCont } = priceStore;
     class="py-20 space-y-12 md:flex md:space-y-0 flex-wrap justify-center gap-10"
   >
     <div
-      class="w-[63%] max-w-[300px] md:mx-0 bg-white mx-auto rounded-lg pt-14 pb-28 px-8 relative"
+      class="w-[90%] md:max-w-[300px] md:mx-0 bg-white mx-auto rounded-lg pt-14 pb-28 px-8 relative"
       v-for="list in PlanPriceRender"
       :key="list.title"
     >
